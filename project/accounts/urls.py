@@ -10,6 +10,7 @@ from accounts.views.passwords import (
 )
 from rest_framework_simplejwt.views import TokenRefreshView
 from accounts.views.logout import LogoutView
+from accounts.views.google_auth import GoogleLoginView
 
 urlpatterns = [
     path("register/", RegisterView.as_view(), name="register"),
@@ -21,4 +22,5 @@ urlpatterns = [
     path("password/verify-otp/", VerifyResetOTPView.as_view(), name="password-verify-otp"),
     path("password/reset/confirm/", ResetPasswordConfirmView.as_view(), name="password-reset-confirm"),
     path("password/change/", ChangePasswordView.as_view(), name="password-change"),
+    path("google-login/", GoogleLoginView.as_view(), name="google-login"),
 ]

@@ -1,6 +1,11 @@
+from django.shortcuts import render
 from rest_framework_simplejwt.views import TokenObtainPairView
 from accounts.serializers.login import CustomTokenObtainPairSerializer
 
 
 class CustomLoginView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
+
+
+def home(request):
+    return render(request, "page.html")
