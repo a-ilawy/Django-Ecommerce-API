@@ -1,5 +1,7 @@
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
+
+from ..permissions import CustomtPermission
 from ..models.product import Product
 from ..serializers.product import ProductSerializer
 from rest_framework.pagination import PageNumberPagination
@@ -14,6 +16,7 @@ class ProductListCreateView(generics.ListCreateAPIView):
     queryset = Product.objects.order_by('created_at')
     serializer_class = ProductSerializer
     pagination_class = CustomPagination
+    permission_classes = [CustomtPermission]
 
     # Search & Filter
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
@@ -25,3 +28,4 @@ class ProductListCreateView(generics.ListCreateAPIView):
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [CustomtPermission]
