@@ -86,8 +86,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+SWAGGER_USE_COMPAT_RENDERERS = False
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
