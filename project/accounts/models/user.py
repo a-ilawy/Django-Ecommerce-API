@@ -6,7 +6,7 @@ class User(AbstractUser):
         ('admin', 'Admin'),
         ('buyer', 'Buyer'),
     )
-
+    username = models.CharField(max_length=150, unique=True, null=True, blank=True)
     user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='buyer')
     phone_number = models.CharField(max_length=15, blank=True, null=True, unique=True)
     full_name = models.CharField(max_length=255)
