@@ -1,11 +1,10 @@
-from django.shortcuts import render
-from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from accounts.serializers.login import CustomTokenObtainPairSerializer
 
-
-class CustomLoginView(TokenObtainPairView):
-    serializer_class = CustomTokenObtainPairSerializer
-
-
-def home(request):
-    return render(request, "page.html")
+class CustomLoginView(APIView):
+    def post(self, request):
+        serializer = CustomTokenObtainPairSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
