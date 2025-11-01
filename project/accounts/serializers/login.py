@@ -12,7 +12,6 @@ class CustomTokenObtainPairSerializer(serializers.Serializer):
         email = attrs.get("email")
         password = attrs.get("password")
 
-        # Custom manual authentication
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
@@ -24,7 +23,6 @@ class CustomTokenObtainPairSerializer(serializers.Serializer):
         if not user.is_active:
             raise serializers.ValidationError({"detail": "This account is inactive."})
 
-        # ✅ Generate tokens manually (don’t call super().validate)
         refresh = RefreshToken.for_user(user)
 
         return {
