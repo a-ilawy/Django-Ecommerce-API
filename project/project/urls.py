@@ -27,8 +27,9 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("account/", include("accounts.urls")),
+    path("accounts/", include("accounts.urls")),
     path("products/", include("products.urls")),
+    path("orders/", include("orders.urls")),
 
     # Swagger & Redoc
     path("swagger<format>/", schema_view.without_ui(cache_timeout=0), name="schema-json"),
