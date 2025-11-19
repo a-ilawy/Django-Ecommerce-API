@@ -57,3 +57,4 @@ def test_cannot_cancel_non_pending_order(api_client, order_with_items, cancel_ur
 
     assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert "cannot cancel" in response.data["error"].lower()
+    

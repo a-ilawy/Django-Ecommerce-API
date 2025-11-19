@@ -111,3 +111,10 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int, default=587)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool, default=True)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+
+
+# Paymob Config
+PAYMOB_API_KEY = config("PAYMOB_API_KEY")
+PAYMOB_IFRAME_ID = config("PAYMOB_IFRAME_ID")
+PAYMOB_INTEGRATION_ID = config("PAYMOB_INTEGRATION_ID")
+PAYMOB_HMAC_SECRET = config("PAYMOB_HMAC_SECRET")
